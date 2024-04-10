@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ titulo }}
+{% endblock %}
+
+{% block body %}
+
+<div class="p-3 card">
+    {{ contenido |safe }} 
+</div>
+<form  class="mb-3" action="{% url 'editar' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="titulo_entrada" value="{{ titulo }}">
+    <input class="form-control mt-4" type="submit" value="Editar">
+</form>
+
+{% endblock %}

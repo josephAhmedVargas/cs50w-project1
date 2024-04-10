@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+    <div class="p-3">
+        <h1 class="mb-4">Editar Página</h1>
+    
+        <form class="mb-3" action="{% url 'guardar' %}" method="post">
+            {% csrf_token %}
+            <span class="badge bg-primary">Titulo:</span>
+            <input class="form-control mt-4" type="text" name="titulo" placeholder="Introduce un titulo" value="{{ titulo }}">
+            <span class="badge bg-primary mt-4">Contenido Markdown:</span>
+            <textarea class="form-control col-md-6 mt-4" name="contenido" style="height: 50vh !important;">{{ contenido }}</textarea>
+            <input class="btn btn-primary mt-4" type="submit" value="Editar página">
+        </form>
+    </div>
+
+{% endblock %}
